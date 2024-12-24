@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { 
+				margin: 0;
+				background-color: burlywood;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="module" src="/main.ts"></script>
+	</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MoAmri ZigZag Game</title>
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="total-distance">
+        Total Distance: <span id="distance">0</span> m
+    </div>
+
+    <div id="leaderboard">
+        <div class="leaderboard-header">
+            Leaderboard
+        </div>
+        <div class="player-row">
+            <div class="player-info">
+                <span class="rank">1</span>
+                <span class="name">Player 1</span>
+            </div>
+            <span class="score">1250</span>
+        </div>
+        <div class="player-row">
+            <div class="player-info">
+                <span class="rank">2</span>
+                <span class="name">Player 2</span>
+            </div>
+            <span class="score">980</span>
+        </div>
+        <div class="player-row">
+            <div class="player-info">
+                <span class="rank">3</span>
+                <span class="name">Player 3</span>
+            </div>
+            <span class="score">875</span>
+        </div>
+        <div class="player-row">
+            <div class="player-info">
+                <span class="rank">4</span>
+                <span class="name">Player 4</span>
+            </div>
+            <span class="score">750</span>
+        </div>
+        <div class="player-row">
+            <div class="player-info">
+                <span class="rank">5</span>
+                <span class="name">Player 5</span>
+            </div>
+            <span class="score">625</span>
+        </div>
+    </div>
+	<script type="module" src="/main.ts"></script>
+
+    <script>
+        // Example of updating the distance
+        let distance = 0;
+        const distanceElement = document.getElementById('distance');
+        
+        // Update distance example (you can modify this based on your needs)
+        function updateDistance(newDistance) {
+            distance = newDistance;
+            distanceElement.textContent = distance;
+        }
+    </script>
+</body>
+</html>
