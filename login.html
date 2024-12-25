@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+  <div class="container" id="main-container">
+    <div class="tabs">
+      <div class="tab active" id="tab-login" onclick="switchTab('login')">Login</div>
+      <div class="tab" id="tab-create-account" onclick="switchTab('create-account')">Create Account</div>
+    </div>
+
+    <div id="login" class="form active">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+      </div>
+      <button class="login-button">Login</button>
+    </div>
+
+    <div id="create-account" class="form">
+      <h2>Create Account</h2>
+      <div class="form-group">
+        <label for="new-username">Username</label>
+        <input type="text" id="new-username" placeholder="Choose a username" />
+      </div>
+      <div class="form-group">
+        <label for="new-password">Password</label>
+        <input type="password" id="new-password" placeholder="Create a password" />
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm your password" />
+      </div>
+      <button class="login-button">Create Account</button>
+    </div>
+    <hr style="background-color: #333;">
+    <br>
+    <button class="anonymous-button">Anonymous</button>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      document.querySelector(`#tab-${tabId}`).classList.add('active');
+
+      document.querySelectorAll('.form').forEach(form => {
+        form.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
