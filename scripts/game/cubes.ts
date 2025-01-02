@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import * as CANNON from 'cannon';
 
 var nextCubeDirection: number = 0;
-var currentCube: THREE.Mesh = null;
+var currentCube: THREE.Mesh|null = null;
 export const cubes: THREE.Mesh[] = [];
 const maxCubes = 50; // Number of cubes to show at once
 
@@ -44,12 +44,11 @@ export function createCube(i: number, world: CANNON.World) {
     // Store the physics body reference in the mesh
     cube.userData.physicsBody = boxBody;
 
-
     return cube;
 }
 function generateNextPosition() {
     nextCubeDirection = Math.random() < 0.5 ? 0 : 1;
-    const prevPos = currentCube.position;
+    const prevPos = currentCube!.position;
     const spacing = 1; 
 
     if (nextCubeDirection === 0) {
@@ -77,19 +76,6 @@ export function newCube(world: CANNON.World, scene: THREE.Scene) {
 }
 
 
-// Add this function to check if sphere has passed a cube
-export function checkCubePassed(cube, sphere ,moveDirection) {
-    if (!sphere || !cube) return false;
-    
-    if (moveDirection === "forward") {
-        // Check if sphere has passed cube on Z axis
-        return sphere.position.z > cube.position.z+1;
-    } else {
-        // Check if sphere has passed cube on X axis
-        return sphere.position.x > cube.position.x+1;
-    }
-}
-
 // Function to make cube fall
 export function makeCubeFall(cube, world: CANNON.World, scene: THREE.Scene) {
     if (cube.userData.physicsBody && cube.userData.physicsBody.mass === 0) {
@@ -115,7 +101,6 @@ export function makeCubeFall(cube, world: CANNON.World, scene: THREE.Scene) {
         
         // Update the reference
         cube.userData.physicsBody = boxBody;
-        // cube.userData.falling = true; // Mark as falling
         setTimeout(()=>{
             // Remove fallen cube
             if (cube.userData.physicsBody) {

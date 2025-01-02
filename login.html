@@ -23,7 +23,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password" />
       </div>
-      <button class="login-button">Login</button>
+      <button class="login-button" onclick="login()">Login</button>
     </div>
 
     <div id="create-account" class="form">
@@ -40,7 +40,7 @@
         <label for="confirm-password">Confirm Password</label>
         <input type="password" id="confirm-password" placeholder="Confirm your password" />
       </div>
-      <button class="login-button">Create Account</button>
+      <button class="login-button" onclick="signup()">Create Account</button>
     </div>
     <hr style="background-color: #333;">
     <br>
@@ -48,6 +48,11 @@
 
   </div>
 
+  <script type="module">
+    import {login, signup} from './scripts/authentication.js';
+    window.login = login;
+    window.signup = signup;
+  </script>
   <script>
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => {

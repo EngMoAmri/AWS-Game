@@ -1,29 +1,21 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>My first three.js app</title>
-		<style>
-			body { 
-				margin: 0;
-				background-color: burlywood;
-			}
-		</style>
-	</head>
-	<body>
-		<script type="module" src="/main.ts"></script>
-	</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>MoAmri ZigZag Game</title>
 	<link rel="stylesheet" href="styles/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="total-distance">
-        Total Distance: <span id="distance">0</span> m
+    <div class="user-container">
+        Hi <span id="username"></span> 
+        <button class="logout-button" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+
+        Top Score: <span id="top-score">0</span><br>
+        Current Score: <span id="current-score">0</span>
     </div>
 
     <div id="leaderboard">
@@ -66,18 +58,22 @@
             <span class="score">625</span>
         </div>
     </div>
-	<script type="module" src="/main.ts"></script>
+	<script type="module" src="/main.js">
 
-    <script>
-        // Example of updating the distance
-        let distance = 0;
-        const distanceElement = document.getElementById('distance');
+    </script>
+
+    <script type="module">
+        import {logout} from './scripts/authentication.js';
+        window.logout = logout;
+        // // Example of updating the score
+        // let score = 0;
+        // const scoreElement = document.getElementById('score');
         
-        // Update distance example (you can modify this based on your needs)
-        function updateDistance(newDistance) {
-            distance = newDistance;
-            distanceElement.textContent = distance;
-        }
+        // // Update score example (you can modify this based on your needs)
+        // function updatescore(newscore) {
+        //     score = newscore;
+        //     scoreElement.textContent = score;
+        // }
     </script>
 </body>
 </html>

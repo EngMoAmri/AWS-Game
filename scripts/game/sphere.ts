@@ -9,7 +9,7 @@ export function createSphere(world: CANNON.World, scene: THREE.Scene) {
     const geometry = new THREE.SphereGeometry(0.4);
     const material = new THREE.MeshBasicMaterial({ color: 0xff00c0 });
     const sphere = new THREE.Mesh(geometry, material);
-    sphere.position.copy(new THREE.Vector3(0, 2.9, 0));
+    sphere.position.copy(new THREE.Vector3(0, 1, 0));
     // Create the physics body
     const sphereShape = new CANNON.Sphere(0.4); // Same radius as THREE.js sphere
     const sphereBody = new CANNON.Body({
